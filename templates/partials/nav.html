@@ -1,0 +1,13 @@
+
+        <a href="/">Nbnb</a>
+        <ul>
+            {% if user.is_authenticated %}
+            <li><a href="{% url "users:logout" %}">Logout</a> </li>
+            {% else %}
+            <li><a href="{% url "users:login" %}">LogIn</a> </li>
+            {% endif %}
+
+        </ul>
+
+
+
