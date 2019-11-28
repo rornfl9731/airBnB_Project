@@ -37,7 +37,7 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
 ]
 
-THIRD_PARTY_APPS = ["django_countries","django_seed"]
+THIRD_PARTY_APPS = ["django_countries", "django_seed"]
 
 PROJECT_APPS = [
     "core.apps.CoreConfig",
@@ -66,7 +66,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,"templates")],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,7 +126,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'uploads')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 MEDIA_URL = "/media/"
 
 AUTH_USER_MODEL = "users.User"
+
+# Email
+
+
+EMAIL_HOST = "smtp.mailgun.org"
+EMAIL_PORT = "587"
+EMAIL_HOST_USER = os.environ.get("MAILGUN_USERNAME")
+EMAIL_HOST_PASSWORD = os.environ.get("MAILGUN_PASSWORD")
+EMAIL_FROM = "postmaster@sandboxd5af9e8be5c54a23962070abcf8ea99d.mailgun.org"
